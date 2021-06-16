@@ -1,0 +1,27 @@
+{% extends 'htfiles/header.html' %}
+{% block title %}Donation{% endblock %}
+{% block content %}
+<div class="container">
+	<div class="card col-md-5 mt-5 mx-auto">
+		<h3 class="bg-info text-white text-center border rounded mt-3 p-2">Request Form</h3>
+		<div class="card-body">
+	<form method="POST">
+		{% csrf_token %}
+		{{v.as_p}}
+		{{r.as_p}}
+		<div class="row">
+						<div class="col">
+							<input type="reset" value="Reset" class="form-control btn btn-secondary">
+						</div>
+
+						<div class="col">
+							<input type="submit" class="form-control btn btn-success" name="subscribe">
+							</div>
+						
+					</div>
+
+				</form>
+			</div>
+		</div>
+</div>
+{% endblock %}

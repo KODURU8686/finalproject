@@ -1,0 +1,9 @@
+{% extends 'htfiles/header.html' %}
+{% block title %}Index{% endblock %}
+{% block content %}
+<div class="container mt-4">
+	<div class="card mx-auto mt-2">
+		<h3>Hi Welcome {% if user.role != 3 %}<span>Anonymous</p>{% elif user.role != 2 %}<p>Org</p>{% else %}<p>Medicinist</p>{% endif %}</h3>
+	</div>
+</div>
+{% endblock %}

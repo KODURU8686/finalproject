@@ -1,0 +1,16 @@
+{% extends 'htfiles/header.html' %}
+{% block title %}Donation Information{% endblock %}
+{% block content %}
+<div class="conatiner">
+	<div class="card col-md-6 mx-auto mt-4 shadow-lg">
+		<h3 class="bg-light text-danger text-center mt-2 border rounded">Donation Information</h3>
+		<div class="card-body">
+			<form method="POST" enctype="multipart/form-data">
+					{% csrf_token %}
+					{{m.as_p}}
+				<input type="submit" value="Update" class="btn btn-block btn-secondary form-control my-2">
+			</form>
+		</div>
+	</div>
+</div>
+{% endblock %}

@@ -1,0 +1,37 @@
+{% extends 'htfiles/header.html' %}
+{% block title %}Main Page{% endblock %}
+{% block content %}
+<style type="text/css">
+	body, html {
+  height: 100%;
+}
+
+.bg { 
+  /* The image used */
+  background-image: url("https://images.unsplash.com/photo-1594708767771-a7502209ff51?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=750&q=80");
+
+  /* Full height */
+  height: 100%; 
+
+  /* Center and scale the image nicely */
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+}
+</style>
+<div class="bg">
+<p class="py-5 text-center">
+<div class="container mt-5 mx-auto">
+		{% if user.is_superuser %}
+		<h3 class="text-center text-white">Welcome to superuser!: {{user.username}}</h3>
+		{% elif user.role == 1 %}
+		<h3 class="text-center text-white">Hi {{user.username}} Donor, Here are your Donations... :)</h3>
+		<h3 class="text-center text-white">view the organizations <a href="{% url 'details' %}">Click here</a></h3>
+		{% elif user.role == 2 %}
+		<h3 class="text-center text-black"> <b>  Welcome to {{user.username}} Organiser</b></h3>
+		{% else %}
+		<h3>Guest</h3>
+		{% endif %}
+	</div>
+</div>
+{% endblock %}

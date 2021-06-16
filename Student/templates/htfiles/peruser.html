@@ -1,0 +1,40 @@
+{% extends 'htfiles/header.html' %}
+{% block title %}User Permissions{% endblock %}
+{% block content %}
+<div class="container mt-4">
+	<div class="card col-md-8 mx-auto shadow-lg">
+		<div class="card-body">
+			<h3>User Permissions</h3>
+			<table class="table table-borderless">
+				<tr class="bg-dark text-light">
+					<th>S.no</th>
+					<th>Username</th>
+					<th>Roles</th>
+					<th>Permissions</th>
+				</tr>
+				{% for j in q %}
+				<tr>
+					<td>{{forloop.counter}}</td>
+					<td>{{j.username}}</td>
+					<td>
+						{% if j.role == 3 %}
+						<span class="badge badge-pills badge-warning p-2">Guest</span>
+						{% elif j.role == 2 %}
+						<span class="badge badge-pills badge-secondary p-2">Organisation</span>
+						{% elif j.role == 1 %}
+						<span class="badge badge-pills badge-info p-2">Medicinist</span>
+						{% else %}
+						<span class="badge badge-pills badge-success p-2">Admin</span>
+						{% endif %}
+				</td>
+					<td colspan="3">
+						<a href="{% url 'gp' j.id %}" class="btn btn-success">update</a>
+						<!-- <a href="{}" class="btn btn-danger">Reject</a> -->
+					</td>
+				</tr>
+				{% endfor %}
+			</table>
+		</div>
+	</div>
+</div>
+{% endblock %}

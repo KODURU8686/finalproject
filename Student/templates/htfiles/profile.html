@@ -1,0 +1,74 @@
+{% extends 'htfiles/header.html' %}
+{% block title %} Profile {% endblock %}
+{% block content %}
+<div class="container mt-1">
+	<div class="row">
+		<div class="card col-md-4 mx-2">
+			<img src="{{user.img.url}}">
+		</div>
+		<div class="col-md-6">
+			<h3>User Details</h3>
+			<table class="table table-borderless">
+				<tr>
+					<th>Username:</th>
+					<td>{{user.username}}</td>
+					<th>Pharmacy Name</th>
+					<td>{{user.hospital_name}}</td>
+					<th>EmailID:</th>
+					<td>{{user.email}}</td>
+					<th>BirthDate:</th>
+					<td>{{user.dob}}</td>
+				</tr>
+				<tr>
+					<th>Gender:</th>
+					<td>{{user.gender}}</td>
+					<th>PhoneNo:</th>
+					<td>{{user.ph_no}}</td>
+					<th>Pan No:</th>
+					<td>{{user.pan_no}}</td>
+				</tr>
+				<tr>
+					<th>Address:</th>
+					<td>{{user.address}}</td>
+					<th></th>
+					<td></td>
+					<th>PIN Code:</th>
+					<td>{{user.postal_code}}</td>
+				</tr>
+				<tr>
+					<th>City:</th>
+					<td>{{user.city}}</td>
+					<th>State:</th>
+					<td>{{user.state}}</td>
+					<th>Country:</th>
+					<td>{{user.country}}</td>
+				</tr>
+			</table>
+			<div class="row">
+				<!-- <div class="col">
+					<a href="{% url 'mn' %}" class="btn btn-outline-warning my-2 col-sm">Back to Main</a>
+				</div> -->
+				{% if user.role == 2 and not user.orgdetails.us_id %}
+				<div class="col">
+					<a href="{% url 'og' %}" class="btn btn-outline-success my-2 col-sm">Org Entry</a>
+				</div>
+				{% elif user.role == 1 or user.role == 3 %}
+				<div class="col">
+					<a href="{% url 'mn' %}" class="btn btn-outline-warning my-2 col-sm">Back to Main</a>
+				</div>
+				<div class="col">
+					<a href="{% url 'dntpf' %}" class="btn btn-outline-success col-sm my-2">Update</a>	
+				</div>
+				{% else %}
+				<div class="col">
+					<a href="{% url 'mn' %}" class="btn btn-outline-warning my-2 col-sm">Back to Main</a>
+				</div>
+				<div class="col">
+					<a href="{% url 'upf' %}" class="btn btn-outline-success col-sm my-2">Update</a>
+				</div>
+				{% endif %}
+			</div>
+		</div>
+	</div>
+</div>
+{% endblock %}

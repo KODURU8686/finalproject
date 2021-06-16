@@ -1,0 +1,10 @@
+{% extends 'htfiles/header.html' %}
+{% block title %}Donation{% endblock %}
+{% block content %}
+<div class="container">
+	<form method="POST">
+		{% csrf_token %}
+		{{u.as_p}}
+	</form>
+</div>
+{% endblock %}

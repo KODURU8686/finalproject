@@ -1,0 +1,49 @@
+{% extends 'htfiles/header.html' %}
+{% block title %} View Medicine {% endblock %}
+{% block content %}
+<style type="text/css">
+	body, html {
+  height: 100%;
+}
+
+.bg { 
+  /* The image used */
+  background-image: url("https://i0.wp.com/www.giveindia.org/blog/wp-content/uploads/rsz_1rsz_1health_blog_cover_image.jpg?fit=664%2C373&ssl=1");
+
+  /* Full height */
+  height: 130%; 
+
+  /* Center and scale the image nicely */
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+}
+</style>
+<div class="bg">
+<p class="py-5 text-center">
+<div class="container">
+	<div class="card col-md-6 mt-4 mx-auto shadow-lg bg-light">
+		<h3 class="bg-warning text-dark text-center p-2 border rounded mt-2">Add Medicine</h3>
+		<div class="card-body">
+			<form method="POST">
+				{% csrf_token %}
+				{{s.as_p}}
+				{{h.as_p}}
+						<div class="col">
+							<input type="submit" class="form-control btn btn-success btn-block" value="Submit">
+						</div>
+					</div>
+			</form>
+		</div>
+	</div>
+</div>
+
+<script>
+  $( function() {
+    $( "#id_production_date" ).datepicker();
+    $( "#id_entry_date" ).datepicker();
+    $( "#id_expiry_date" ).datepicker();
+  } );
+  </script>
+
+{% endblock %}

@@ -1,0 +1,13 @@
+{% extends 'htfiles/header.html' %}
+{% block title %} Search bar {% endblock %}
+{% block content %}
+{% if searched %}
+<h3>You searched for {{ searched }}</h3>
+
+{% for i in Med %}
+{{i}} - {{ i.pharmacy_name}} 
+{% endfor %}
+{% else %}
+<h3>Hey! Nothing found</h3>
+{% endif %}
+{% endblock %}

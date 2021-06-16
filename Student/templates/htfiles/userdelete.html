@@ -1,0 +1,18 @@
+{% extends 'htfiles/header.html' %}
+{% block title %} USer Delete {% endblock %}
+{% block content %}
+
+<div class="container">
+	<div class="card card-md-4 mt-5 mx-auto">
+		<div class="card-body mx-3">
+			<form method="POST">
+				{% csrf_token %}
+				<h3 class="bg-secondary text-center border rounded text-light p-2 font-weight-bold">Delete Medicine</h3>
+				<p class="font-weight-bold">Are you sure you need to delete the medicine {{sd.medicine_name}}</p>
+				<input type="submit" value="Yes Confrim" class="btn btn-success">
+				<a href="{% url 'tab' %}" class="btn btn-warning">No</a>
+			</form>
+		</div>
+	</div>
+</div>
+{% endblock %}

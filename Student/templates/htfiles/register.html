@@ -1,0 +1,53 @@
+{% extends 'htfiles/header.html' %}
+{% block title %}Login{% endblock %}
+
+{% block content %}
+<style type="text/css">
+	body, html {
+  height: 100%;
+}
+
+.bg { 
+  /* The image used */
+  background-image: url("https://mdbootstrap.com/img/Photos/Horizontal/Nature/full page/img(20).jpg");
+
+  /* Full height */
+  height: 100%; 
+
+  /* Center and scale the image nicely */
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+}
+</style>
+<div class="bg">
+<p class="py-5 text-center">
+<div class="container">
+	<div class="card col-md-6 mt-4 mx-auto shadow-lg " style="background-image: linear-gradient(#FF5050 10%
+, #6699FF ) ">
+		<h1 class=" text-dark text-center p-2 border rounded mt-2" >Registration</h1>
+		<div class="card-body">
+			<form method="POST">
+				<!-- {{u.as_p}} -->
+				{% csrf_token %}
+				<table class="table table-borderless">
+					{% for k in t %}
+					<tr>
+						<td>{{k}}</td>
+					</tr>
+					{% endfor %}
+				</table>
+				<div class="row">
+						<div class="col">
+							<a href="{% url 'lg' %}" class="form-control  col-sm-9 btn btn-outline-secondary text-dark rounded">Existing User</a>
+						</div>
+							<input type="submit" class="form-control btn btn-outline-dark text-center text-light col-sm-5" name="subscribe">
+						
+					</div>
+			</form>
+	
+	</div>
+</div>
+	</div>
+</div>
+{% endblock %}

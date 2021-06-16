@@ -1,0 +1,39 @@
+{% extends 'htfiles/header.html' %}
+{% block title %}Table {% endblock %}
+{% block content %}
+<div class="card col-md-10 mt-2 mx-auto">
+			<h4 class="bg-secondary text-white text-center border rounded mt-2 p-3">Medicine Information</h4>
+			<table class="table table-striped">
+				<tr>
+					<th>S.No</th>
+					<th>Medicine name</th>
+					<th>Quantity</th>
+					<th>Batch number</th>
+					<th>Category</th>
+					<th>Production date</th>
+					<th>Entry date</th>
+					<th>Expiry date</th>
+				</tr>
+				<div class="row">
+				<!-- <div class="col-md-2 ml-auto my-3">
+			<a href="#" class="btn btn-secondary bn-block form-control">View</a>
+			</div> -->
+			</div>
+				{% for i in info %}
+				<tr>
+					<td>{{forloop.counter}}</td>
+					<td><a href="#">{{i.medicine_name}}</a></td>
+					<td>{{i.quantity}}</td>
+					<td>{{i.batch_no}}</td>
+					<td>{{i.category}}</td>
+					<td>{{i.production_date}}</td>
+					<td>{{i.entry_date}}</td>
+					<td>{{i.expiry_date}}</td>
+					<!-- <td><a class="btn btn-primary mx-1" href="{% url 'ue' i.id %}">Edit</a><a class="btn btn-danger mx-1" href="{% url 'del' i.id %}">Delete</a></td> -->
+					</tr>
+				{% endfor %}
+			
+			</table>
+		</div>
+
+{% endblock %}

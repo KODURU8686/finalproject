@@ -1,0 +1,32 @@
+{% extends 'htfiles/header.html' %}
+{% block title %}Table {% endblock %}
+{% block content %}
+<div class="card col-md-10 mt-2 mx-auto">
+			<h4 class="bg-secondary text-white text-center border rounded mt-2 p-3">Medicine Information</h4>
+			<table class="table table-striped">
+				<tr>
+					<th>S.No</th>
+					<th>User name</th>
+					<th>quantity</th>
+					<th>total_tablets</th>
+					<th>doanted_tablets</th>
+					<th>remaining_tablets</th>
+					<th>donated_date</th>
+				</tr>
+				{% for i in info %}
+				<tr>
+					<td>{{forloop.counter}}</td>
+					<td><a href="#">{{i.username}}</a></td>
+					<td>{{i.quantity}}</td>
+					<td>{{i.total_tablets}}</td>
+					<td>{{i.doanted_tablets}}</td>
+					<td>{{i.remaining_tablets}}</td>
+					<td>{{i.donated_date}}</td>
+					<td><a class="btn btn-primary mx-1" href="{% url 'ue' i.id %}">Edit</a><a class="btn btn-danger mx-1" href="{% url 'del' i.id %}">Delete</a></td>
+					</tr>
+				{% endfor %}
+			
+			</table>
+		</div>
+
+{% endblock %}

@@ -1,0 +1,31 @@
+{% extends 'htfiles/header.html' %}
+{% block title %}Role Requests{% endblock %}
+{% block content %}
+<div class="container mt-4">
+	<div class="card col-md-6 mx-auto shadow-lg">
+		<div class="card-body">
+			<h3>Role Requests</h3>
+			{% if not user.rolrq.ud_id %}
+			<form method="post" enctype="multipart/form-data">
+				{% csrf_token %}
+				{% for j in n %}
+				{% if forloop.counter == 1 %}
+				<td><input type="text" name="uname" class="form-control" readonly=True value="{{user.username}}"></td>
+				{% else %}
+				{{j}}
+				{% endif %}
+				{% endfor %}
+				<div class="row">
+					<div class="col">
+						<input type="reset" value="Reset" class="btn btn-outline-info col-sm my-2">
+					</div>
+					<div class="col">
+						<input type="submit" value="Request Role" class="btn btn-outline-success col-sm my-2">
+					</div>
+				</div>
+			</form>
+			{% endif %}
+		</div>
+	</div>
+</div>
+{% endblock %}

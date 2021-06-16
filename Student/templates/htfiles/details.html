@@ -1,0 +1,51 @@
+{% extends 'htfiles/header.html' %}
+{% block title %}Org details {% endblock %}
+{% block content %}
+<style type="text/css">
+	body, html {
+  height: 100%;
+}
+
+.bg { 
+  /* The image used */
+  background-image: url("http://myonetenth.org/wp-content/uploads/2015/05/slide-banner-052.jpg");
+
+
+  /* Full height */
+  height: 100%; 
+
+  /* Center and scale the image nicely */
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+}
+</style>
+<div class="bg">
+<p class="py-5 text-center">
+<div class="container">
+	<div class=" mt-4">
+		<h3 class="text-warning mt-4 my-2 text-center">your organisations</h3>
+	</div>
+	<div class=" col-md mt-2 shadow-lg">
+		<div class="">
+
+			<table class="table table-striped table-borderless-center">
+				<tr class="bg-dark text-light text-center">
+					<th>S.No</th>
+					<th>orgnization name</th>
+					<th>Founder Name</th>
+					<th>Established On</th>
+				</tr>
+				{% for i in v %}
+				<tr>
+				<td class="text-light ">{{ forloop.counter }}</td>
+				<td class="text-light">{{ i.org_name }}</td>
+				<td class="text-light">{{ i.found_name }}</td>
+				<td class="text-light">{{ i.est_date }}</td>
+				</tr>
+				{% endfor %}
+			</table>
+		</div>
+	</div>
+</div>
+{% endblock %}

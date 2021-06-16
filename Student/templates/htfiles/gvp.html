@@ -1,0 +1,29 @@
+{% extends 'htfiles/header.html' %}
+{% block title %}Update Permissions{% endblock %}
+{% block content %}
+<div class="container mt-4">
+	<div class="card col-md-8 mx-auto shadow-lg">
+		<div class="card-body">
+		 	<form method="post">
+		 		{% csrf_token %}
+		 		<h3>Permissions Update</h3>
+		 		<table class="table table-borderless">
+		 			{% for m in y %}
+		 			<tr>
+		 				<td>{{m}}</td>
+		 			</tr>
+		 			{% endfor %}
+		 		</table>
+		 		<div class="row">
+		 			<div class="col">
+		 				<a href="{% url 'pmu' %}" class="btn btn-secondary m-2 col-sm">Cancel</a>
+		 			</div>
+		 			<div class="col">
+		 				<input type="submit" value="Give" class="btn btn-success m-2 col-sm">	
+		 			</div>
+		 		</div>
+		 	</form>
+		</div>
+	</div>
+</div>
+{% endblock %}

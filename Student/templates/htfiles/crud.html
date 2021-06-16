@@ -1,0 +1,45 @@
+{% extends 'htfiles/header.html' %}
+{% block title %} CRUD operations {% endblock %}
+{% block content %}
+
+<div class="container">
+	<div class="row">
+		<div class="card col col-md-3 mt-2">
+			<h4 class="p-3 bg-primary text-white text-center mt-2 border rounded">Add User</h4>
+			<form method="POST">
+				{% csrf_token %}
+				<input type="text" name="name" placeholder="Enter Name" class="form-control my-2">
+				<input type="password" name="pwd" placeholder="Enter Password" class="form-control my-2">
+				<input type="email" name="eml" placeholder="Enter Email" class="form-control my-2">
+				<input type="number" name="age" placeholder="Enter Age" class="form-control my-2">
+				<input type="submit" name="" class=" form-control btn btn-primary btn-block my-2" value="Submit">
+			</form>
+		</div>
+		<div class="card col-md-8 mt-2">
+			<h4 class="bg-primary text-white text-center border rounded mt-2 p-3">User Details</h4>
+			<table class="table table-hover">
+				<tr>
+					<th>S.No</th>
+					<th>Username</th>
+					<th>EmailID</th>
+					<th>Age</th>
+					<th>Actions</th>
+				</tr>
+				
+				{% for i in info %}
+				<tr>
+					<td>{{forloop.counter}}</td>
+					<td>{{i.Username}}</td>
+					<td>{{i.password}}</td>
+					<td>{{i.email}}</td>
+					<td>{{i.age}}</td>
+					<td><a class="btn btn-primary mx-1" href=""> Update</a><a class="btn btn-danger mx-1" href="{% url 'delete' i.id %}">Delete</a></td>
+					</tr>
+				{% endfor %}
+			
+			</table>
+		</div>
+	</div>
+</div>
+
+{% endblock %}

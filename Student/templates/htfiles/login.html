@@ -1,0 +1,76 @@
+{% extends 'htfiles/header.html' %}
+{% block title %}Login{% endblock %}
+{% block content %}
+
+{% if messages %}
+  {% for j in messages %}
+  <div class="alert alert-{{j.tags}} alert-dismissible">
+  <button type="button" class="close" data-dismiss="alert">&times;</button>
+  {{j}}
+</div>
+  {% endfor %}
+{% endif %}
+
+<div class="bg-image" style="background-image: url();"></div>
+<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.8.2/css/all.css">
+<!-- Google Fonts -->
+<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,400,500,700&display=swap">
+<!-- Bootstrap core CSS -->
+<link href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.5.0/css/bootstrap.min.css" rel="stylesheet">
+<!-- Material Design Bootstrap -->
+<link href="https://cdnjs.cloudflare.com/ajax/libs/mdbootstrap/4.19.1/css/mdb.min.css" rel="stylesheet">
+
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+
+<style type="text/css">
+  body, html {
+  height: 100%;
+}
+
+.bg { 
+  /* The image used */
+  background-image: url("https://mdbcdn.b-cdn.net/img/Photos/Others/images/91.jpg");
+
+  /* Full height */
+  height: 100%; 
+
+  /* Center and scale the image nicely */
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+}
+</style>
+<div class="bg">
+<p class="py-5 text-center">
+
+ 
+    <div class="conatiner ">
+      <div class="card col-md-3 mx-auto shadow-lg " style="background-image: linear-gradient(#FF5050 10%
+, #6699FF ) ">
+        <h3 class="text-dark border rounded text-center p-2 my-2 mt-4">Login</h3>
+        <div class="card-body ">
+          <form method="POST">
+            {% csrf_token %}
+        <!-- {{form.as_p}} -->
+        <input type="text" name="username" placeholder="Enter username" class="form-control text-white  border rounded  p-2 my-2 mt-4" style="background-color:#6a3e6c">
+        <input type="password" name="password" placeholder="Enter password" class="form-control text-white my-2 p-2 my-2 mt-4" style="background-color:#6a3e6c;">
+        <div class="row">
+          <div class="col">
+            <input type="submit" value="Login" class="col-md btn btn-outline-warning my-3 rounded shadow-lg">
+          </div>
+          <div class="col">
+            <a href="{% url 'nreg' %}" class=" text-white btn btn-outline-dark my-3 rounded ">NewUser</a>
+          </div>
+        </div>
+        <a href="{% url 'reset_password' %}" class="btn btn-outline-danger text-white btn-block my-2 rounded">Forget Password</a>
+      </form>
+    </div>
+  </div>
+</div>
+
+</div>
+{% endblock %}
+
+
+
+

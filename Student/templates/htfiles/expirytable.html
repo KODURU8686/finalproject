@@ -1,0 +1,34 @@
+{% extends 'htfiles/header.html' %}
+{% block title %}Table {% endblock %}
+{% block content %}
+<div class="card col-md-10 mt-2 mx-auto">
+			<h4 class="bg-secondary text-white text-center border rounded mt-2 p-3">Medicine Information</h4>
+			<table class="table table-striped">
+				<tr>
+					<th>S.No</th>
+					<th>Pharmacy name</th>
+					<th>Medicine name</th>
+					<th>Quantity</th>
+					<th>Category</th>
+					<th>Production date</th>
+					<th>Entry date</th>
+					<th>Expiry date</th>
+					<th>remaining Days</th>
+				</tr>
+				{% for k in wk %}
+				<tr>
+					<td>{{ forloop.counter }}</td>
+					<td>{{k.1}}</td>
+					<td>{{k.2}}</td>
+					<td>{{k.3}}</td>
+					<td>{{k.4}}</td>
+					<td>{{k.5}}</td>
+					<td>{{k.6}}</td>
+					<td>{{k.7}}</td>
+					<td>{{k.8| cut:", 0:00:00"}}</td>
+					</tr>
+				{% endfor %}
+			</table>
+		</div>
+
+{% endblock %}

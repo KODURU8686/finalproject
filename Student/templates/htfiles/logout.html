@@ -1,0 +1,33 @@
+{% extends 'htfiles/header.html' %}
+{% block title %}{% endblock %}
+{% block content %}
+<style type="text/css">
+	body, html {
+  height: 90%;
+}
+
+.bg { 
+  /* The image used */
+  background-image: url("https://www.furniturelightingdecor.com/sites/lightinganddecormag/files/styles/max_1300x1300/public/2019-08/Adobestock-plant-in-hands.jpg?itok=mO9Xk75W");
+
+  /* Full height */
+  height: 100%; 
+
+  /* Center and scale the image nicely */
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+}
+</style>
+<div class="bg">
+<p class="py-5 text-center">
+<div class="container">
+	<div class=" col-md-6 mx-auto mt-4 shadow-lg">
+		<h3 class=" bg-info text-light text-center p-3">Logout</h3>
+		<div class="card-body">
+			<h2 class="text-light">Successfully logged out!</h2>
+			<h3 class="text-light">You need to login again click here <a href="{% url 'lg' %}" class="form-control btn btn-outline-warning rounded text-light">Proceed here</a></h3>
+		</div>
+	</div>
+</div>
+{% endblock %}

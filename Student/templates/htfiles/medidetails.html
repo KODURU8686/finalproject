@@ -1,0 +1,37 @@
+{% extends 'htfiles/header.html' %}
+{% block title %} Pharmacy Details {% endblock %}
+{% block content %}
+<div class="container-fluid mt-4">
+<div class="card col-md mt-2 mx-2 shadow-lg">
+	<div class="card-body">
+		{% if sh %}
+		<table class="table table-borderless table-center">
+			<tr class="bg-dark text-light text-center">
+				<th>Pharmacy name</th>
+				<th>Phone number</th>
+				<th>Address</th>
+				<th>Street name</th>
+				<th>city</th>
+				<th>State</th>
+				<th>Country</th>
+				<th>Postal code</th>
+				<th>Email ID</th>
+			</tr>
+
+			<tr>
+				<td>{{sh.hospital_name}}</td>
+				<td>{{sh.ph_no}}</td>
+				<td>{{sh.pan_no}}</td>
+				<td>{{sh.address}}</td>
+				<td>{{sh.city}}</td>
+				<td>{{sh.state}}</td>
+				<td>{{sh.country}}</td>
+				<td>{{sh.postal_code}}</td>
+				<td>{{sh.email}}</td>
+			</tr>
+		</table>
+		{% endif %}
+	</div>
+</div>
+</div>
+{% endblock %}
